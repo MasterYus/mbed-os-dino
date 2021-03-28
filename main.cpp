@@ -112,5 +112,5 @@ int main() {
     //start game loop
     start_screen();
     btn.fall(queue.event(&button_listener));
-    queue.dispatch_forever();
+    game_thread.start(callback(&queue,&EventQueue::dispatch_forever));
   }

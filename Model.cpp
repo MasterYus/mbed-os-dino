@@ -69,6 +69,7 @@ class Model {
     int y = 0;
     int to_x = 0;
     int to_y = 0;
+    int ttl = 100;
     string tag = "";
     string type;
     Bitmap* bm;
@@ -101,6 +102,11 @@ class Model {
         this->x = x;
         this->y = y;
     }
+
+    void move_to(int x){
+        this->x = x;
+    }
+
     int getX(){
         return x;
     }
@@ -109,6 +115,18 @@ class Model {
     }
     Bitmap* getBitmap(){
         return bm;
+    }
+
+    void setTtl(int ttl){
+        this->ttl = ttl;
+    }
+    int getTtl(){
+        return ttl;
+    }
+    
+    void shiftBitmap(Bitmap* bm){
+        if (type == TYPE_BITMAP)
+            this->bm = bm;
     }
     string getTag(){
         return tag;

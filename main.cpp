@@ -1,4 +1,3 @@
-
 #include "mbed.h"
 #include "platform/mbed_thread.h"
 #include "Adafruit_SSD1306.h"
@@ -37,8 +36,6 @@ void end_game(){
     lcd.setTextCursor(10, 45);
     print("Oops. Play again?");
     lcd.display();
-    game_mode=0;
-    printf("%d\n", game_mode);
 }
 
 void update_cactus(){

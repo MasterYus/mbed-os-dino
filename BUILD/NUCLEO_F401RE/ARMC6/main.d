@@ -237,4 +237,5 @@ BUILD\NUCLEO_F401RE\ARMC6\main.o: main.cpp \
   mbed-os\platform\mbed_stats.h mbed-os\platform\Callback.h \
   mbed-os\platform\FunctionPointer.h mbed-os\platform\ScopedLock.h \
   mbed-os\platform\mbed_thread.h Adafruit_GFX\Adafruit_SSD1306.h \
-  Adafruit_GFX\Adafruit_GFX.h Adafruit_GFX\Adafruit_GFX_Config.h
+  Adafruit_GFX\Adafruit_GFX.h Adafruit_GFX\Adafruit_GFX_Config.h \
+  Game.cpp Model.cpp

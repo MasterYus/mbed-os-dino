@@ -2,10 +2,10 @@
     {
         "module": "Adafruit_GFX\\Adafruit_GFX.o",
         "size": {
-            ".text": 2441,
+            ".text": 2573,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 2441,
+            ".text-delta": 132,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -16,7 +16,7 @@
             ".text": 2094,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 2094,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -24,43 +24,43 @@
     {
         "module": "Game.o",
         "size": {
-            ".text": 162,
+            ".text": 52,
             ".data": 0,
-            ".bss": 37,
-            ".text-delta": 162,
+            ".bss": 1,
+            ".text-delta": -236,
             ".data-delta": 0,
-            ".bss-delta": 37
+            ".bss-delta": -36
         }
     },
     {
         "module": "Model.o",
         "size": {
-            ".text": 142,
+            ".text": 52,
             ".data": 0,
-            ".bss": 37,
-            ".text-delta": 142,
+            ".bss": 1,
+            ".text-delta": -186,
             ".data-delta": 0,
-            ".bss-delta": 37
+            ".bss-delta": -36
         }
     },
     {
         "module": "[lib]\\c_w.l",
         "size": {
-            ".text": 21189,
+            ".text": 21433,
             ".data": 16,
-            ".bss": 348,
-            ".text-delta": 21189,
-            ".data-delta": 16,
-            ".bss-delta": 348
+            ".bss": 576,
+            ".text-delta": 244,
+            ".data-delta": 0,
+            ".bss-delta": 228
         }
     },
     {
         "module": "[lib]\\fz_wm.l",
         "size": {
-            ".text": 1312,
+            ".text": 2436,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 1312,
+            ".text-delta": 1124,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -68,12 +68,12 @@
     {
         "module": "[lib]\\libcpp_w.l",
         "size": {
-            ".text": 65872,
+            ".text": 67482,
             ".data": 0,
-            ".bss": 2920,
-            ".text-delta": 65872,
+            ".bss": 2921,
+            ".text-delta": 1638,
             ".data-delta": 0,
-            ".bss-delta": 2920
+            ".bss-delta": 1
         }
     },
     {
@@ -82,7 +82,7 @@
             ".text": 2595,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 2595,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -90,10 +90,10 @@
     {
         "module": "[lib]\\m_wm.l",
         "size": {
-            ".text": 794,
+            ".text": 1018,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 794,
+            ".text-delta": 224,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -104,20 +104,20 @@
             ".text": 32,
             ".data": 0,
             ".bss": 1024,
-            ".text-delta": 32,
+            ".text-delta": 0,
             ".data-delta": 0,
-            ".bss-delta": 1024
+            ".bss-delta": 0
         }
     },
     {
         "module": "main.o",
         "size": {
-            ".text": 2277,
-            ".data": 0,
-            ".bss": 624,
-            ".text-delta": 2277,
-            ".data-delta": 0,
-            ".bss-delta": 624
+            ".text": 7506,
+            ".data": 172,
+            ".bss": 641,
+            ".text-delta": 4939,
+            ".data-delta": 172,
+            ".bss-delta": 17
         }
     },
     {
@@ -126,7 +126,7 @@
             ".text": 203,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 203,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -137,18 +137,18 @@
             ".text": 1857,
             ".data": 0,
             ".bss": 1188,
-            ".text-delta": 1857,
+            ".text-delta": 0,
             ".data-delta": 0,
-            ".bss-delta": 1188
+            ".bss-delta": 0
         }
     },
     {
         "module": "mbed-os\\events",
         "size": {
-            ".text": 1418,
+            ".text": 1784,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 1418,
+            ".text-delta": 242,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -159,7 +159,7 @@
             ".text": 18,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 18,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -170,31 +170,31 @@
             ".text": 2010,
             ".data": 4,
             ".bss": 66,
-            ".text-delta": 2010,
-            ".data-delta": 4,
-            ".bss-delta": 66
+            ".text-delta": 0,
+            ".data-delta": 0,
+            ".bss-delta": 0
         }
     },
     {
         "module": "mbed-os\\platform",
         "size": {
-            ".text": 7132,
+            ".text": 7208,
             ".data": 64,
             ".bss": 312,
-            ".text-delta": 7132,
-            ".data-delta": 64,
-            ".bss-delta": 312
+            ".text-delta": 0,
+            ".data-delta": 0,
+            ".bss-delta": 0
         }
     },
     {
         "module": "mbed-os\\rtos",
         "size": {
-            ".text": 12617,
+            ".text": 13027,
             ".data": 168,
             ".bss": 6762,
-            ".text-delta": 12617,
-            ".data-delta": 168,
-            ".bss-delta": 6762
+            ".text-delta": 0,
+            ".data-delta": 0,
+            ".bss-delta": 0
         }
     },
     {
@@ -203,17 +203,17 @@
             ".text": 11991,
             ".data": 4,
             ".bss": 872,
-            ".text-delta": 11991,
-            ".data-delta": 4,
-            ".bss-delta": 872
+            ".text-delta": 0,
+            ".data-delta": 0,
+            ".bss-delta": 0
         }
     },
     {
         "summary": {
-            "static_ram": 14446,
-            "static_ram_delta": 14446,
-            "total_flash": 136412,
-            "total_flash_delta": 136412
+            "static_ram": 14792,
+            "static_ram_delta": 346,
+            "total_flash": 145799,
+            "total_flash_delta": 8293
         }
     }
 ]

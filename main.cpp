@@ -1,7 +1,10 @@
 #include "mbed.h"
 #include "platform/mbed_thread.h"
 #include "Adafruit_SSD1306.h"
+#include <cstddef>
+#include <cstdlib>
 #include <string> 
+#include <Game.cpp>
 
 // an SPI sub-class that provides a constructed default
 class SPIPreInit : public SPI
@@ -19,6 +22,7 @@ Adafruit_SSD1306_Spi lcd(gSpi,D9,D8,D10,64,128);
 InterruptIn btn(USER_BUTTON);
 Thread game_thread;
 EventQueue queue;
+Game* game;
 
 
 void button_listener();
@@ -30,34 +34,45 @@ void print(string label){
     }
 }
 
+ // finish current game
 void end_game(){ 
-    // finish current game
     cancel_events();
     lcd.setTextCursor(10, 45);
     print("Oops. Play again?");
     lcd.display();
 }
 
-void update_cactus(){
-}
 
-//lcd.drawBitmap(20,curr_h,bDino.data,bDino.x,bDino.y,1);
-
-int curr_dino_bitmap = 1;
-
+// draw start screen
 void start_screen(){
     lcd.setTextCursor(28, 10);
     print("Press F to start");
     lcd.display();
 }
 
-void update_frame(){
+// output game engine models
+void draw_out(){
     lcd.clearDisplay();
-    lcd.drawLine(0, 31, 130, 31, 1);
-    lcd.setTextCursor(90,5);
-    //print(to_string(score));
-    //update_dino();
-    update_cactus();
+    if (game != nullptr){
+        for (auto model : game->get_all_models())
+        {
+            switch (model.getType()){
+                case TYPE_BITMAP:
+                    lcd.drawBitmap(model.getX(),model.getY(),model.getBitmap()->data,model.getBitmap()->x,model.getBitmap()->y,1);
+                break;
+                case TYPE_TEXT:
+                    lcd.setTextCursor(model.getX(),model.getY());
+                    print(model.getText());
+                break;
+                case TYPE_LINE:
+                    lcd.drawLine(model.getX(),model.getY(), model.getToX(), model.getToY(), 1);
+                break;
+            }
+        }
+    } else {
+        lcd.setTextCursor(10,32);
+        print("Internal error while loading models!");
+    }
     lcd.display();
 }
 
@@ -65,44 +80,45 @@ void update_frame(){
     int call_id2;
     int call_id3;
 
-void reload_params(){
-    // reset game process params
+// thread game shedule tickers 
+void game_ticker(){
+    game->on_game_tick();
+    draw_out();
 }
-    
+
+void score_ticker(){
+    game->score_tick();
+}
+
+void dino_ticker(){
+    game->shift_dino_bm();
+}
+
+// setup EventQueve thread
 void play_game(){
+    game = new Game();
+    game -> set_end_callback(&end_game);
     // init game loop callbacks
-    reload_params();
-    call_id1 = queue.call_every(30, &update_frame); // 30 ticks ~ 30 frames per second
-    //call_id2 = queue.call_every(100, &score_tick); // update score
-    //call_id3 = queue.call_every(400, &shift_dino_bm); // anim dino (^_^)
+    call_id1 = queue.call_every(30, &game_ticker); // 30 ticks ~ 30 frames per second
+    call_id2 = queue.call_every(100, &score_ticker); // update score
+    call_id3 = queue.call_every(400, &dino_ticker); // anim dino (^_^)
 }
 
 void cancel_events(){
     // stop game loop
     printf("--stop game issued\n");
+    free(game);
     queue.cancel(call_id1);
     queue.cancel(call_id2);
     queue.cancel(call_id3);
 }
 
 void button_listener(){
-    /*
-    switch (game_mode){
-        case 0:
-            play_game();
-            game_mode=1;
-        break;
-        case 1:
-            jump();
-        break;
-        case 2:
-        break;
-        default:
-            printf("--error in SWITCH\n");
-        break;
+    if (game == nullptr){
+        play_game();
+    } else {
+        game ->jump();
     }
-    printf("%d\n", game_mode);
-    */
 }
 
 int main() {

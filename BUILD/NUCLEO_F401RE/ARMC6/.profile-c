@@ -7,6 +7,7 @@
         "-DMBED_DEBUG",
         "-DMBED_TRAP_ERRORS_ENABLED=1",
         "-DMULADDC_CANNOT_USE_R7",
+        "-D_LIBCPP_EXTERN_TEMPLATE(...)=",
         "-MMD",
         "-O1",
         "-Wno-armcc-pragma-anon-unions",

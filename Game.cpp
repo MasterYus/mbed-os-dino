@@ -25,6 +25,8 @@ class Game {
     int jmp_step = 1;
 
     random_device rd;
+
+    void (*end_callback)();
     
     public:
     Game(){
@@ -34,7 +36,12 @@ class Game {
     }
 
     void on_game_tick(){
-        
+        update_dino();
+        update_cactus();
+    }
+
+    void set_end_callback(void (*callback)()){
+        end_callback = callback;
     }
 
     int find_model_index_by_tag(string tag){
@@ -115,7 +122,9 @@ class Game {
                 obsts.at(i).move_to(x);
             }
             if((x>26 && x<30) && curr_h+bDino.y > ground_level) {
-                //collision;
+                if (end_callback != nullptr){
+                    (*end_callback)();
+                }
             }
         }
     }
@@ -127,7 +136,12 @@ class Game {
         Model new_obst = Model(130,ground_level+2,&bObst,"obst");
         new_obst.setTtl(uni(rng));
         obsts.push_back(new_obst);
-        
+    }
+
+    vector<Model> get_all_models(){
+        vector<Model> tmp = models;
+        tmp.insert( tmp.end(), obsts.begin(), obsts.end());
+        return tmp;
     }
 
 };

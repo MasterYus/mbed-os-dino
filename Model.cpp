@@ -24,9 +24,9 @@ static uint8_t Dino3[] = {
 0x08, 0x08, 0x08, 0x08
 };
 
-static string TYPE_LINE = "line";
-static string TYPE_BITMAP = "bitmap";
-static string TYPE_TEXT = "text";
+static const int TYPE_LINE = 0;
+static const int TYPE_BITMAP = 1;
+static const int TYPE_TEXT = 2;
 
 
 struct Bitmap{
@@ -71,7 +71,8 @@ class Model {
     int to_y = 0;
     int ttl = 100;
     string tag = "";
-    string type;
+    string text;
+    int type;
     Bitmap* bm;
     
     public:
@@ -87,6 +88,7 @@ class Model {
         this->x = x;
         this->y = y;
         this->tag = tag;
+        this->text = text;
         type = TYPE_TEXT;
     }
 
@@ -107,11 +109,22 @@ class Model {
         this->x = x;
     }
 
+    string getText(){
+        return text;
+    }
+
     int getX(){
         return x;
     }
     int getY(){
         return y;
+    }
+
+    int getToX(){
+        return to_x;
+    }
+    int getToY(){
+        return to_y;
     }
     Bitmap* getBitmap(){
         return bm;
@@ -130,6 +143,10 @@ class Model {
     }
     string getTag(){
         return tag;
+    }
+
+    int getType(){
+        return type;
     }
     
 };
